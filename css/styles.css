@@ -1,0 +1,9 @@
+.firstPage,
+.thirdPage {
+  background-color: rgb(94, 92, 92);
+  height: 100vh;
+}
+.secondPage {
+  background-color: gray;
+  height: 100vh;
+}
