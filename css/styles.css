@@ -1,9 +1,23 @@
-.firstPage,
-.thirdPage {
-  background-color: rgb(94, 92, 92);
-  height: 100vh;
+body{
+  margin: 0;
+  padding: 0;
 }
-.secondPage {
-  background-color: gray;
-  height: 100vh;
+
+#plane{
+  max-width: 300px;
+  min-width: 150px;
+  max-height: 200px;
+  min-height: 100px;
+  background-color: aquamarine;
+  position: absolute;
+  bottom: 200px;
+
+}
+
+#runway{
+  width: 100vw;
+  height: 200px;
+  background-color: grey;
+  position: absolute;
+  bottom: 0;;
 }
