@@ -99,3 +99,13 @@ body{
   margin: 30px;
   font-size: large;
 }
+
+#soundControl{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+#play{
+  display: none;
+}
