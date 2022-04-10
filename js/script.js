@@ -46,10 +46,11 @@ $(document).ready(() => {
             e.preventDefault();
         }
         if([32].indexOf(e.keyCode) > -1) {
+          //block play before starting the audio (in the very beginning)
           e.preventDefault();
           if(soundPlaying){
             pauseSound();
-          }else{
+          }else{ 
             playSound();
           }
       }
@@ -59,22 +60,17 @@ $(document).ready(() => {
 
       var audio = document.getElementById("sound");
       var slow = document.querySelectorAll(".slow");
-      
-      sound.addEventListener("timeupdate", function(event){
-        //get time stamp of the sound
-        if(audio.currentTime<30.0){
-          slow.forEach(obj => {
-            var position = obj.getBoundingClientRect();
-            obj.style.left = position.left - 30 + 'px';
-            // obj.style.top = ;
-          });
-          
-        }
-      });
 
-      
-
-
+      var updatePosition = function(){
+        if(audio.currentTime<30.0 && soundPlaying){
+            slow.forEach(obj => {
+              var position = obj.getBoundingClientRect();
+              obj.style.left = position.left - 1 + 'px';
+              // obj.style.top = ;
+            });
+      }
+    }
+      setInterval(updatePosition, 10);
 
     });
   }, 0);
