@@ -64,6 +64,7 @@ $(document).ready(() => {
       var slow = document.querySelectorAll(".slow");
       var fast = document.querySelector(".fast");
       var slower = document.querySelectorAll(".slower");
+      var slowest = document.querySelectorAll(".slowest");
 
       var updatePosition = function(){
         if(soundPlaying){
@@ -81,6 +82,11 @@ $(document).ready(() => {
             slower.forEach(obj => {
               var position = obj.getBoundingClientRect();
               obj.style.left = position.left - 0.3 + 'px';
+            });
+
+            slowest.forEach(obj => {
+              var position = obj.getBoundingClientRect();
+              obj.style.left = position.left - 0.25 + 'px';
             });
       }
     }
