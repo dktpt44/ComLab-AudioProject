@@ -119,19 +119,7 @@ $(document).ready(() => {
             clearInterval(takeOff);
           }
         }
-      }, 10);
-
-      // var takeOff = setInterval(() => {
-      //   if(isUp){
-      //     plane.style.left = plane.getBoundingClientRect().left + 2 + 'px';
-      //     bottom = bottom + 0.5;
-      //     plane.style.bottom = bottom + "px";
-      //     if(plane.getBoundingClientRect().left>=0){
-      //       clearInterval(takeOff);
-      //     }
-      //   }
-      // }, 15);
-
+      }, 10); 
       
 
 
