@@ -77,13 +77,13 @@ $(document).ready(() => {
             });
       }
 
-       if(audio.currentTime>180&& soundPlaying){
+       if(audio.currentTime>174&& soundPlaying){
            overlay.style.opacity = "100%";
      }
-     if(audio.currentTime>183 && soundPlaying){
+     if(audio.currentTime>177 && soundPlaying){
          overlay2.style.opacity = "100%";
    }
-   if(audio.currentTime>187 && soundPlaying){
+   if(audio.currentTime>180 && soundPlaying){
        heartattack.style.display = "block";
  }
     }
