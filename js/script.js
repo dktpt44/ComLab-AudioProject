@@ -61,6 +61,7 @@ $(document).ready(() => {
       //audio
       // getting the cloud and audio elements
       var audio = document.getElementById("sound");
+
       var slow = document.querySelectorAll(".slow");
       var fast = document.querySelector(".fast");
       var slower = document.querySelectorAll(".slower");
@@ -95,8 +96,7 @@ $(document).ready(() => {
 
       // manipulate the speed and direction of the plane
       var plane = document.getElementById("plane");
-      var planeImage = document.getElementById("planeImage")
-      var planeAltitude = $(window).innerHeight() / 2;
+      var planeImage = document.getElementById("planeImage");
       var middlesection = $(".homeScreen").innerWidth() * 0.3;
       var planeBottom = 0;
       var planeLeft = -20;
@@ -139,7 +139,16 @@ $(document).ready(() => {
             clearInterval(takeOff);
           }
         }
-      }, 10); 
+      }, 10);
+      
+      var goDown = setInterval(() =>{
+        if(soundPlaying && sound.currentTime > 153.0){ //150.0
+          angle = angle + 5;
+          planeBottom = planeBottom - 0.02;
+          plane.style.bottom = planeBottom + "%";
+          planeImage.style.transform = "rotate(" + angle + "deg)";
+        }
+      }, 10);
     });
   }, 0);
 });
