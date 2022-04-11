@@ -50,7 +50,7 @@ $(document).ready(() => {
           e.preventDefault();
           if(soundPlaying && started){
             pauseSound();
-          }else if(!soundPlaying && started){ 
+          }else if(!soundPlaying && planeUp){ 
             playSound();
           }
       }
@@ -100,7 +100,7 @@ $(document).ready(() => {
 
 
       var slideIn = setInterval(() => {
-        if(started && started){
+        if(started){
           planeBottom = planeBottom + 0.1;
           planeLeft = planeLeft + 0.1;
           plane.style.left = planeLeft + '%';
@@ -114,7 +114,7 @@ $(document).ready(() => {
       }, 10);
 
       var takeOff = setInterval(() =>{
-        if(planeUp && started){
+        if(planeUp && soundPlaying){
           if(plane.getBoundingClientRect().left <= middlesection){
             angle = angle + 0.03;
             planeLeft = planeLeft + 0.07;
@@ -131,11 +131,6 @@ $(document).ready(() => {
           }
         }
       }, 10); 
-      
-
-
-      
-
     });
   }, 0);
 });
