@@ -18,7 +18,7 @@ body{
   /* background-color: black; */
   width: 0.5%;
   position: absolute;
-  left: 87vw;
+  left: 100vw;
   top: -10vh;
   z-index: -1;
 }
