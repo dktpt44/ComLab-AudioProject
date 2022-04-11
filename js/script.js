@@ -77,22 +77,49 @@ $(document).ready(() => {
       setInterval(updatePosition, 10);
 
       var plane = document.getElementById("plane");
+      var planeImage = document.getElementById("planeImage")
       var planeAltitude = $(window).innerHeight() / 2;
       var middlesection = $(".homeScreen").innerWidth() * 0.3;
-      var bottom = 0;
-      var isUp = false;
+      var planeBottom = 0;
+      var planeLeft = -20;
+      var planeUp = false;
+      var angle = -21;
+      var runway = document.getElementById("runway");
+      var runwayBottom = 0;
+      var runwayLeft = 0;
+
 
       var slideIn = setInterval(() => {
         if(started){
-          plane.style.left = plane.getBoundingClientRect().left + 2 + 'px';
-          bottom = bottom + 0.1;
-          plane.style.bottom = bottom + "%";
+          planeBottom = planeBottom + 0.1;
+          planeLeft = planeLeft + 0.1;
+          plane.style.left = planeLeft + '%';
+          plane.style.bottom = planeBottom + "%";
           if(plane.getBoundingClientRect().left>=0){
             clearInterval(slideIn);
-            isUp = true;
+            planeUp = true;
           }
         }
-      }, 15);
+      }, 10);
+
+      var takeOff = setInterval(() =>{
+        if(planeUp){
+          if(plane.getBoundingClientRect().left <= middlesection){
+            angle = angle + 0.03;
+            planeLeft = planeLeft + 0.07;
+            planeBottom = planeBottom + 0.05;
+            runwayBottom = runwayBottom - 0.15;
+            runwayLeft = runwayLeft - 0.05;
+            plane.style.left = planeLeft + '%';
+            plane.style.bottom = planeBottom + "%";
+            planeImage.style.transform = "rotate(" + angle + "deg)";
+            runway.style.bottom = runwayBottom + "%";
+            runway.style.left = runwayLeft + "%";
+          }else{
+            clearInterval(takeOff);
+          }
+        }
+      }, 10);
 
       // var takeOff = setInterval(() => {
       //   if(isUp){
