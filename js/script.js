@@ -60,7 +60,6 @@ $(document).ready(() => {
 
       //audio
 
-      var audio = document.getElementById("sound");
       var slow = document.querySelectorAll(".slow");
       var fast = document.querySelector(".fast");
       var slower = document.querySelectorAll(".slower");
@@ -87,8 +86,7 @@ $(document).ready(() => {
       setInterval(updatePosition, 10);
 
       var plane = document.getElementById("plane");
-      var planeImage = document.getElementById("planeImage")
-      var planeAltitude = $(window).innerHeight() / 2;
+      var planeImage = document.getElementById("planeImage");
       var middlesection = $(".homeScreen").innerWidth() * 0.3;
       var planeBottom = 0;
       var planeLeft = -20;
@@ -130,7 +128,16 @@ $(document).ready(() => {
             clearInterval(takeOff);
           }
         }
-      }, 10); 
+      }, 10);
+      
+      var goDown = setInterval(() =>{
+        if(soundPlaying && sound.currentTime > 5.0){ //150.0
+          angle = angle + 7;
+          planeBottom = planeBottom - 0.05;
+          plane.style.bottom = planeBottom + "%";
+          planeImage.style.transform = "rotate(" + angle + "deg)";
+        }
+      }, 10);
     });
   }, 0);
 });
