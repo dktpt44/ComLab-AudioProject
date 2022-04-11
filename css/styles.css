@@ -8,7 +8,8 @@ body{
   max-height: 200px;
   min-height: 100px;
   position: absolute;
-  bottom: 120px;
+  bottom: 100px; /* set the bottom and left to be non constants*/
+  left: -300px;
   z-index: 80;
 }
 
