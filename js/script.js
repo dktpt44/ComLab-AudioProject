@@ -5,7 +5,7 @@ $(document).ready(() => {
     $(".homeScreen").fadeIn("slow", () => {
       //when first screen is displayed
       // any code write here:
-
+      var started = false;
       var sound = document.getElementById("sound");
       var soundPlaying = false;
       var pauseButton = document.getElementById("pause");
@@ -16,6 +16,7 @@ $(document).ready(() => {
         $(".takeoffclass").fadeOut();
         sound.play();
         soundPlaying = true;
+        started = true;
       });
 
       var playSound = function(){
@@ -48,9 +49,9 @@ $(document).ready(() => {
         if([32].indexOf(e.keyCode) > -1) {
           //block play before starting the audio (in the very beginning)
           e.preventDefault();
-          if(soundPlaying){
+          if(soundPlaying && started){
             pauseSound();
-          }else{ 
+          }else if(!soundPlaying && started){ 
             playSound();
           }
       }
@@ -62,7 +63,7 @@ $(document).ready(() => {
       var slow = document.querySelectorAll(".slow");
 
       var updatePosition = function(){
-        if(audio.currentTime<30.0 && soundPlaying){
+        if(audio.currentTime>30.0 && soundPlaying){
             slow.forEach(obj => {
               var position = obj.getBoundingClientRect();
               obj.style.left = position.left - 1 + 'px';

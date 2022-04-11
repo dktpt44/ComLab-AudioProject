@@ -7,17 +7,27 @@ body{
   min-width: 150px;
   max-height: 200px;
   min-height: 100px;
-  background-color: aquamarine;
   position: absolute;
-  bottom: 200px;
+  bottom: 120px;
+  z-index: 80;
 }
 
 #runway{
   width: 100vw;
-  height: 200px;
-  background-color: grey;
   position: absolute;
   bottom: 0;
+  left: 0;
+}
+
+#runway img{
+  object-fit: cover;
+  width: 100%;
+}
+
+#plane img{
+  transform: rotate(-21deg);
+  object-fit: fill;
+  width: 100%;
 }
 
 #clouds{
@@ -61,10 +71,10 @@ body{
 #takeOffBtn {
   width: 150px;
   border: 0;
-  background-color: white;
-  border: 3px solid black;
+  background-color: black;
+  border: 3px solid white;
   border-radius: 4px;
-  color: black;
+  color: white;
   cursor: pointer;
   padding: 4px 15px;
   font-size: 17px;
@@ -73,13 +83,15 @@ body{
   line-height: 1.47059;
   margin: 0 auto;
   font-family: monospace;
+  filter: drop-shadow(1px 1px 4px white);
+  
 }
 
 #takeOffBtn:hover {
-  background-color: black;
-  border-color: black;
+  background-color: white;
+  border-color: white;
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .takeoffclass {
