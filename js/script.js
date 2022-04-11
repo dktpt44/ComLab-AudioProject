@@ -64,11 +64,22 @@ $(document).ready(() => {
       var slow = document.querySelectorAll(".slow");
 
       var updatePosition = function(){
-        if(audio.currentTime>30.0 && soundPlaying){
+        if(audio.currentTime>5 && soundPlaying){
             slow.forEach(obj => {
               var position = obj.getBoundingClientRect();
               obj.style.left = position.left - 1 + 'px';
-              // obj.style.top = ;
+            });
+      }
+    }
+      setInterval(updatePosition, 10);
+
+      var slowest = document.querySelectorAll(".slowest");
+
+      var updatePosition = function(){
+        if(audio.currentTime>5 && soundPlaying){
+            slowest.forEach(obj => {
+              var position = obj.getBoundingClientRect();
+              obj.style.left = position.left - 0.5 + 'px';
             });
       }
     }
