@@ -59,7 +59,7 @@ $(document).ready(() => {
       window.addEventListener("wheel", e => e.preventDefault(), { passive:false });
 
       //audio
-
+      // getting the cloud and audio elements
       var audio = document.getElementById("sound");
       var slow = document.querySelectorAll(".slow");
       var fast = document.querySelector(".fast");
@@ -67,6 +67,7 @@ $(document).ready(() => {
       var slowest = document.querySelectorAll(".slowest");
 
       var updatePosition = function(){
+        // checking if sound is playing and move the clouds accordingly
         if(soundPlaying){
             slow.forEach(obj => {
               var position = obj.getBoundingClientRect();
@@ -92,6 +93,7 @@ $(document).ready(() => {
     }
       setInterval(updatePosition, 10);
 
+      // manipulate the speed and direction of the plane
       var plane = document.getElementById("plane");
       var planeImage = document.getElementById("planeImage")
       var planeAltitude = $(window).innerHeight() / 2;
@@ -104,7 +106,7 @@ $(document).ready(() => {
       var runwayBottom = 0;
       var runwayLeft = 0;
 
-
+      // making the plane slide 
       var slideIn = setInterval(() => {
         if(started){
           planeBottom = planeBottom + 0.1;
@@ -119,6 +121,7 @@ $(document).ready(() => {
         }
       }, 10);
 
+      // making the plane take off and changing the heading angle
       var takeOff = setInterval(() =>{
         if(planeUp && soundPlaying){
           if(plane.getBoundingClientRect().left <= middlesection){
