@@ -90,7 +90,7 @@ $(document).ready(() => {
 
 
       var slideIn = setInterval(() => {
-        if(started){
+        if(started && soundPlaying){
           planeBottom = planeBottom + 0.1;
           planeLeft = planeLeft + 0.1;
           plane.style.left = planeLeft + '%';
@@ -103,7 +103,7 @@ $(document).ready(() => {
       }, 10);
 
       var takeOff = setInterval(() =>{
-        if(planeUp){
+        if(planeUp && soundPlaying){
           if(plane.getBoundingClientRect().left <= middlesection){
             angle = angle + 0.03;
             planeLeft = planeLeft + 0.07;
