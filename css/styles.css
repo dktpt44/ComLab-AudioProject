@@ -153,9 +153,12 @@ body{
 }
 
 #welcomeMessage{
-  margin: 30px;
+  position: absolute;
+  margin: 90px;
+  left: 20vw;
   font-size: large;
-  color: white;
+  color: black;
+  top: 10vh;
 }
 
 #soundControl{
