@@ -5,8 +5,8 @@ body{
 #plane{
   width: 25%;
   position: absolute;
-  bottom: 10%; /* set the bottom and left to be non constants*/
-  left: -300px;
+  bottom: 0;
+  left: -20%;
   z-index: 80;
 }
 
@@ -32,7 +32,7 @@ body{
 
 #runway img{
   object-fit: cover;
-  width: 100%;
+  width: 120%;
 }
 
 #plane img{
@@ -153,6 +153,7 @@ body{
 #welcomeMessage{
   margin: 30px;
   font-size: large;
+  color: white;
 }
 
 #soundControl{
