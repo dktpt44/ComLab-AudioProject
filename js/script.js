@@ -149,12 +149,19 @@ $(document).ready(() => {
           planeImage.style.transform = "rotate(" + angle + "deg)";
         }
       }, 10);
+      // 105 and 126
 
       var goingUp = true;
       var firstTime = true;
+      var changeVal = 0.5;
       var planePos = 0;
       var turbulence = setInterval(() => {
-        if (sound.currentTime > 105 && sound.currentTime < 126) {
+        //105 126
+        if (sound.currentTime > 105 && sound.currentTime < 140) {
+          if (sound.currentTime > 126) {
+            changeVal = 2;
+            console.log(changeVal);
+          }
           // getting the plane position in the air
           if (firstTime) {
             planePos = plane.getBoundingClientRect().top;
@@ -162,23 +169,23 @@ $(document).ready(() => {
           }
           let curpos = plane.getBoundingClientRect().top;
           if (goingUp) {
-            curpos -= 1;
+            curpos -= changeVal;
             plane.style.top = curpos + 'px';
           } else {
-            curpos += 1;
+            curpos += changeVal;
             plane.style.top = curpos + 'px';
 
           }
-          if (curpos > planePos + 8) {
+          if (curpos > planePos + 5) {
             goingUp = true;
-          } else if (curpos < planePos - 8) {
+          } else if (curpos < planePos - 5) {
             goingUp = false;
           }
         }
-        if (sound.currentTime > 126) {
+        if (sound.currentTime > 140) {
           clearInterval(turbulence);
         }
-      }, 25)
+      }, 25);
 
 
     });
