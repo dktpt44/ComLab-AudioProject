@@ -63,17 +63,13 @@ $(document).ready(() => {
       var audio = document.getElementById("sound");
       var slow = document.querySelectorAll(".slow");
       var fast = document.querySelector(".fast");
+      var slower = document.querySelectorAll(".slower");
 
       var updatePosition = function(){
         if(soundPlaying){
             slow.forEach(obj => {
               var position = obj.getBoundingClientRect();
-              obj.style.left = position.left - 0.5 + 'px';
-              // obj.style.top = ;
-              //console.log("position: ", position.left);
-              // if(position.left < 0){
-              //   console.log("less than 0 here");
-              // }
+              obj.style.left = position.left - 0.4 + 'px';
 
               if( position.left+position.width < 0) {
                 // element is off to the left of the view
@@ -82,6 +78,10 @@ $(document).ready(() => {
             });
             var pos = fast.getBoundingClientRect();
             fast.style.left = pos.left - ((0.0002)*(pos.left)) + 'px';
+            slower.forEach(obj => {
+              var position = obj.getBoundingClientRect();
+              obj.style.left = position.left - 0.3 + 'px';
+            });
       }
     }
       setInterval(updatePosition, 10);
