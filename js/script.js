@@ -70,7 +70,7 @@ $(document).ready(() => {
         if(soundPlaying){
             slow.forEach(obj => {
               var position = obj.getBoundingClientRect();
-              obj.style.left = position.left - 1 + 'px';
+              obj.style.left = position.left - 0.5 + 'px';
               // obj.style.top = ;
               //console.log("position: ", position.left);
               // if(position.left < 0){
