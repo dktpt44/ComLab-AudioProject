@@ -79,16 +79,36 @@ $(document).ready(() => {
       var plane = document.getElementById("plane");
       var planeAltitude = $(window).innerHeight() / 2;
       var middlesection = $(".homeScreen").innerWidth() * 0.3;
+      var bottom = 0;
+      var isUp = false;
 
-      var takeOff = setInterval(() => {
+      var slideIn = setInterval(() => {
         if(started){
           plane.style.left = plane.getBoundingClientRect().left + 2 + 'px';
-          //plane.style.bottom = plane.getBoundingClientRect().bottom + 3 + 'px';
+          bottom = bottom + 0.5;
+          plane.style.bottom = bottom + "px";
+          if(plane.getBoundingClientRect().left>=0){
+            clearInterval(slideIn);
+            isUp = true;
+          }
+        }
+      }, 15);
+
+      var takeOff = setInterval(() => {
+        if(isUp){
+          plane.style.left = plane.getBoundingClientRect().left + 2 + 'px';
+          bottom = bottom + 0.5;
+          plane.style.bottom = bottom + "px";
           if(plane.getBoundingClientRect().left>=0){
             clearInterval(takeOff);
           }
         }
-      }, 10);
+      }, 15);
+
+      
+
+
+      
 
     });
   }, 0);
