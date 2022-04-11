@@ -64,14 +64,26 @@ $(document).ready(() => {
 
       var audio = document.getElementById("sound");
       var slow = document.querySelectorAll(".slow");
+      var fast = document.querySelector(".fast");
 
       var updatePosition = function(){
-        if(audio.currentTime>30.0 && soundPlaying){
+        if(soundPlaying){
             slow.forEach(obj => {
               var position = obj.getBoundingClientRect();
               obj.style.left = position.left - 1 + 'px';
               // obj.style.top = ;
+              //console.log("position: ", position.left);
+              // if(position.left < 0){
+              //   console.log("less than 0 here");
+              // }
+
+              if( position.left+position.width < 0) {
+                // element is off to the left of the view
+                console.log("left the screen");
+            }
             });
+            var pos = fast.getBoundingClientRect();
+            fast.style.left = pos.left - ((0.0002)*(pos.left)) + 'px';
       }
     }
       setInterval(updatePosition, 10);
@@ -93,6 +105,27 @@ $(document).ready(() => {
           }
         }
       }, 15);
+
+      var addClouds = function(){
+        const e = document.createElement("div");
+        e.classList.add("slow");
+        e.classList.add("sky_clouds");
+
+        let img = document.createElement("img");
+
+        img.src = "pics/cloud1.PNG";
+
+        img.style.width = "500px";
+        img.style.height = "auto";
+
+        e.appendChild(img);
+
+        //slow.push(e);
+        //console.log(slow);
+
+      };
+
+       setInterval(addClouds, 100);
 
       // var takeOff = setInterval(() => {
       //   if(isUp){
