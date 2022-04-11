@@ -14,8 +14,6 @@ $(document).ready(() => {
       let takeOffBtn = $("#takeOffBtn");
       takeOffBtn.on("click", () => {
         $(".takeoffclass").fadeOut();
-        sound.play();
-        soundPlaying = true;
         started = true;
       });
 
@@ -90,7 +88,7 @@ $(document).ready(() => {
 
 
       var slideIn = setInterval(() => {
-        if(started && soundPlaying){
+        if(started && started){
           planeBottom = planeBottom + 0.1;
           planeLeft = planeLeft + 0.1;
           plane.style.left = planeLeft + '%';
@@ -98,12 +96,13 @@ $(document).ready(() => {
           if(plane.getBoundingClientRect().left>=0){
             clearInterval(slideIn);
             planeUp = true;
+            playSound();
           }
         }
       }, 10);
 
       var takeOff = setInterval(() =>{
-        if(planeUp && soundPlaying){
+        if(planeUp && started){
           if(plane.getBoundingClientRect().left <= middlesection){
             angle = angle + 0.03;
             planeLeft = planeLeft + 0.07;

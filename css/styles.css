@@ -119,6 +119,7 @@ body{
 #welcomeMessage{
   margin: 30px;
   font-size: large;
+  color: white;
 }
 
 #soundControl{
