@@ -3,12 +3,9 @@ body{
 }
 
 #plane{
-  max-width: 300px;
-  min-width: 150px;
-  max-height: 200px;
-  min-height: 100px;
+  width: 25%;
   position: absolute;
-  bottom: 100px; /* set the bottom and left to be non constants*/
+  bottom: 10%; /* set the bottom and left to be non constants*/
   left: -300px;
   z-index: 80;
 }
@@ -27,7 +24,7 @@ body{
 
 #plane img{
   transform: rotate(-21deg);
-  object-fit: fill;
+  object-fit: cover;
   width: 100%;
 }
 
