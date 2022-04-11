@@ -6,6 +6,11 @@ $(document).ready(() => {
       //when first screen is displayed
       // any code write here:
 
+      var overlay = document.querySelector('.lastblackscreen');
+      var overlay2 = document.querySelector('.lastlastblackscreen');
+      var heartattack = document.querySelector('.heart-rate2');
+    //  overlay.style.display = "none";
+
       var sound = document.getElementById("sound");
       var soundPlaying = false;
       var pauseButton = document.getElementById("pause");
@@ -50,12 +55,12 @@ $(document).ready(() => {
           e.preventDefault();
           if(soundPlaying){
             pauseSound();
-          }else{ 
+          }else{
             playSound();
           }
       }
       }, false);
-      
+
       window.addEventListener("wheel", e => e.preventDefault(), { passive:false });
 
       var audio = document.getElementById("sound");
@@ -69,6 +74,16 @@ $(document).ready(() => {
               // obj.style.top = ;
             });
       }
+
+       if(audio.currentTime>180&& soundPlaying){
+           overlay.style.opacity = "100%";
+     }
+     if(audio.currentTime>183 && soundPlaying){
+         overlay2.style.opacity = "100%";
+   }
+   if(audio.currentTime>187 && soundPlaying){
+       heartattack.style.display = "block";
+ }
     }
       setInterval(updatePosition, 10);
 
