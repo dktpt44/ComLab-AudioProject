@@ -169,7 +169,7 @@ $(document).ready(() => {
     var runwayBottom = 0;
     var runwayLeft = 0;
 
-    // making the plane slide 
+    // making the plane slide
     var slideIn = setInterval(() => {
       if (started) {
         planeBottom = planeBottom + 0.1;
@@ -204,7 +204,13 @@ $(document).ready(() => {
       }
     }, 10);
 
-    // for animating the plane 
+    var overlay = document.querySelector('.lastblackscreen');
+    var overlay2 = document.querySelector('.lastlastblackscreen');
+    var overlay3 = document.querySelector('.lastlastlastblackscreen');
+    var heartattack = document.querySelector('.heart-rate');
+    var heartattack2 = document.querySelector('.heart-rate2');
+
+    // for animating the plane
     var goDown = setInterval(() => {
       if (soundPlaying && sound.currentTime > 153.0) { //150.0
         angle = angle + 5;
@@ -212,12 +218,28 @@ $(document).ready(() => {
         plane.style.bottom = planeBottom + "%";
         planeImage.style.transform = "rotate(" + angle + "deg)";
       }
-      if (sound.ended) {
-        // show the blackscreen after audio finishes playing
-        $(".homeScreen").fadeOut(2000);
-        $(".blackScreen").fadeIn(3000);
-
-      }
+      if(audio.currentTime>174 && soundPlaying){
+          overlay.style.opacity = "100%";
+          document.getElementById("plane").style.display="none";
+          //overlay.style.display = "block";
+    }
+    if(audio.currentTime>175 && soundPlaying ){
+      overlay.style.opacity = "0%";
+        overlay2.style.opacity = "100%";
+        heartattack.style.display = "block";
+  }
+   if(audio.currentTime>177 && soundPlaying){
+       heartattack.style.display = "none";
+       overlay3.style.opacity = "100%";
+       heartattack2.style.display = "block";
+     }
+     console.log(audio.currentTime);
+  // if (sound.ended) {
+      //   // show the blackscreen after audio finishes playing
+      //   $(".homeScreen").fadeOut(2000);
+      //   $(".blackScreen").fadeIn(3000);
+      //
+      // }
     }, 10);
 
     // for turbulence
