@@ -80,6 +80,7 @@ $(document).ready(() => {
         const rndnum = Math.floor(Math.random() * 2);
         sound2.play();
         if (rndnum === 0) {
+          // adding thunder gif
           const myElem = document.createElement("div");
           myElem.className = "lightning1";
           myElem.style.left = `${event.clientX - 200}px`;
@@ -89,6 +90,7 @@ $(document).ready(() => {
             document.body.removeChild(myElem);
           }, 1100);
         } else {
+          // making thunder images
           const myElem = document.createElement("div");
           myElem.className = "lightning2";
           myElem.style.left = `${event.clientX - 330}px`;
@@ -202,6 +204,7 @@ $(document).ready(() => {
       }
     }, 10);
 
+    // for animating the plane 
     var goDown = setInterval(() => {
       if (soundPlaying && sound.currentTime > 153.0) { //150.0
         angle = angle + 5;
@@ -209,25 +212,27 @@ $(document).ready(() => {
         plane.style.bottom = planeBottom + "%";
         planeImage.style.transform = "rotate(" + angle + "deg)";
       } else if (sound.currentTime > 175) {
+        // show the blackscreen after audio finishes playing
         $(".homeScreen").fadeOut(2000);
         $(".blackScreen").fadeIn(3000);
 
       }
     }, 10);
-    // 105 and 126
 
+    // for turbulence
     var goingUp = true;
     var firstTime = true;
     var changeVal = 0.3;
     var planePos = 0;
     var turbulence = setInterval(() => {
       let x = sound.currentTime;
+      // play shaking animation at these times
       if ((x > 55 && x < 57) || (x > 80 && x < 85) || (x > 106 && x < 108) || (x > 108 && x < 110) || (x > 120 && x < 121.5) || (x > 122 && x < 123.5) || (x > 130 && x < 131.5) || (x > 130 && x < 131.5) || (x > 130 && x < 131.5) || (x > 135.5 && x < 136) || (x > 136 && x < 137.5) || (x > 138 && x < 139.5) || (x > 150.5 && x < 152)) {
         plane.classList.add("shake");
       } else {
         plane.classList.remove("shake");
       }
-      //105 126
+      //make up and down movements at these times
       if ((x > 49 && x < 55) || (x > 57 && x < 67) || (x > 85 && x < 105) || (x > 110 && x < 120) || (x > 124 && x < 130) || (x > 132 && x < 135) || (x > 140 && x < 150)) {
         // 126
         if (x > 90) {
