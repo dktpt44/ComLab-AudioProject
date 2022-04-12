@@ -144,7 +144,7 @@ $(document).ready(() => {
       var goDown = setInterval(() => {
         if (soundPlaying && sound.currentTime > 153.0) { //150.0
           angle = angle + 5;
-          planeBottom = planeBottom - 0.04;
+          planeBottom = planeBottom - 0.05;
           plane.style.bottom = planeBottom + "%";
           planeImage.style.transform = "rotate(" + angle + "deg)";
         }
