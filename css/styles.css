@@ -1,16 +1,17 @@
-body{
+body {
   font-family: monospace;
+  overflow: hidden;
 }
 
-#plane{
-  width: 25%;
+#plane {
+  width: 22%;
   position: absolute;
   bottom: 0;
   left: -20%;
   z-index: 80;
 }
 
-#sun{
+#sun {
   /* max-width: 400px;
   min-width: 200px;
   max-height: 300px;
@@ -23,26 +24,26 @@ body{
   z-index: -1;
 }
 
-#runway{
+#runway {
   width: 100vw;
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-#runway img{
+#runway img {
   object-fit: cover;
   width: 120%;
 }
 
-#plane img{
+#plane img {
   transform: rotate(-21deg);
   object-fit: cover;
   width: 100%;
 }
 
-#clouds{
-  width:0.5%;
+#clouds {
+  width: 0.5%;
   /* max-width: 400px;
   min-width: 200px;
   max-height: 300px;
@@ -54,7 +55,7 @@ body{
   top: 20vh;
 }
 
-#clouds_ground{
+#clouds_ground {
   /* width: 100vw;
   height: 200px; */
   width: 0.5%;
@@ -64,7 +65,7 @@ body{
   left: 100vw;
 }
 
-#turbulence_ground{
+#turbulence_ground {
   /* width: 100vw;
   height: 200px; */
   width: 0.5%;
@@ -75,8 +76,8 @@ body{
   z-index: 91;
 }
 
-.ground_clouds{
- /* width: 100vw;
+.ground_clouds {
+  /* width: 100vw;
   height: 200px; */
   width: 0.5%;
   /* background-color: lightslategrey; */
@@ -85,7 +86,7 @@ body{
   left: 200vw;
 }
 
-.sky_clouds{
+.sky_clouds {
   width: 0.5%;
   /* background-color: lightslategrey; */
   position: absolute;
@@ -93,7 +94,7 @@ body{
   left: 200vw;
 }
 
-#turbulenceClouds{
+#turbulenceClouds {
   /* width: 100vw;
   height: 200px; */
   width: 0.5%;
@@ -104,7 +105,7 @@ body{
   z-index: 90;
 }
 
-#water{
+#water {
   width: 100vw;
   height: 200px;
   background-color: skyblue;
@@ -124,12 +125,11 @@ body{
   padding: 4px 15px;
   font-size: 17px;
   font-weight: 400;
-  letter-spacing: -.022em;
+  letter-spacing: -0.022em;
   line-height: 1.47059;
   margin: 0 auto;
   font-family: monospace;
-  filter: drop-shadow(1px 1px 4px white);
-  
+  filter: drop-shadow(1px 1px 8px rgb(182, 182, 182));
 }
 
 #takeOffBtn:hover {
@@ -152,21 +152,109 @@ body{
   flex-direction: column;
 }
 
-#welcomeMessage{
+#welcomeMessage {
   position: absolute;
   margin: 90px;
   left: 20vw;
   font-size: large;
   color: black;
-  top: 10vh;
+  top: 13vh;
 }
 
-#soundControl{
+#soundControl {
   position: absolute;
   top: 15px;
   left: 15px;
 }
 
-#play{
+#play {
   display: none;
+}
+
+/*  shake */
+.shake {
+  animation: shake 0.7s;
+  animation-iteration-count: 2;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+/* for click effect */
+.clickeffect {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  position: fixed;
+  border-radius: 50%;
+  border: 1px solid #ffffff59;
+}
+.lightning1 {
+  position: absolute;
+  z-index: 1000;
+  height: 216px;
+  width: 200px;
+  background: url(../pics/l1.gif);
+}
+.lightning2 {
+  position: absolute;
+  z-index: 1000;
+  height: 400px;
+  min-width: 400px;
+  background: url(../pics/l2.png);
+  background-size: contain;
+}
+
+@keyframes clickeffectanim {
+  to {
+    transform: scale(15);
+    opacity: 0.01;
+  }
+}
+.blackScreen {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1200;
+  color: white;
+  text-align: center;
+  display: none;
+}
+.blackScreen p {
+  font-size: 24px;
+  margin-top: 45vh;
 }

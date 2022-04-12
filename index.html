@@ -36,32 +36,41 @@
   <div class="homeScreen">
 
     <!-- this is where the story container begins  -->
-
     <div class="takeoffclass">
       <p id="welcomeMessage">
-        Airplane crash from the perspective of the airplane passenger cabin. -
-        loud music pls be careful
+        Perspective of a passenger in an airplane passenger cabin.
+        Loud music pls be careful
       </p>
       <button id="takeOffBtn"> Take off!</button>
     </div>
 
+    <!-- sound element for the html file  -->
     <audio id="sound">
       <source src="audio/sound.mp3" type="audio/mpeg">
       Audio file is not supported by your browser pls level up your game :(
     </audio>
+    <audio id="sound2">
+      <source src="audio/thunder.mp3" type="audio/mpeg">
+      Audio file is not supported by your browser pls level up your game :(
+    </audio>
+
+    <!-- play pause buttons  -->
     <div id="soundControl">
       <img id="pause" src="pause.png" alt="pause button lols" height="50px" width="auto">
       <img id="play" src="play.png" alt="play button lols" height="50px" width="auto">
     </div>
 
+    <!-- plane  -->
     <div id="plane">
       <img id="planeImage" src="pics/plane.PNG" alt="A Plane image :)" width="300px" height="auto">
     </div>
 
-    <!-- cloud images  -->
+    <!-- runway  -->
     <div class="slow" id="runway">
       <img src="pics/runway.PNG" alt="dis a runway:)">
     </div>
+
+    <!-- cloud images  -->
     <div class="slow" id="clouds_ground">
       <img src="pics/cloud1.PNG" alt="cloud :)" width="1500px" height="auto">
     </div>
@@ -90,16 +99,22 @@
     </div>
 
     <!-- image of the sun -->
-    <div class="fast" id="sun">
+    <div class="sunimg" id="sun">
       <img src="pics/sun.PNG" alt="Sun :)" width="300px" height="auto">
     </div>
 
 
-
-
-
   </div>
   <!-- end of home screen div  -->
+
+  <div class="blackScreen">
+    <p>
+      What happened to the crew and the passengers?
+      <br />
+      <br />
+      The End of Part I
+    </p>
+  </div>
 
 
   <!-- loading js files  -->
