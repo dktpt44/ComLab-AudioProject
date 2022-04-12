@@ -1,6 +1,10 @@
 $(document).ready(() => {
   // hide the loading screen and show the home page
   $(".loadingScreen").fadeOut();
+  $(".lastblackscreen").fadeOut();
+  $(".lastlastblackscreen").fadeOut();
+  $(".lastlastlastblackscreen").fadeOut();
+
   $(".homeScreen").fadeIn("slow", () => {
     //when first screen is displayed
     // any code write here:
@@ -74,16 +78,15 @@ $(document).ready(() => {
     // add click listener
     allClouds.forEach((thisCloud) => {
       thisCloud.addEventListener("click", (event) => {
+        console.log("event");
         clickEffect(event);
-        // console.log(event.clientX);
-        // console.log(event.clientY)
         const rndnum = Math.floor(Math.random() * 2);
         sound2.play();
         if (rndnum === 0) {
           // adding thunder gif
           const myElem = document.createElement("div");
           myElem.className = "lightning1";
-          myElem.style.left = `${event.clientX - 200}px`;
+          myElem.style.left = `${event.clientX - 180}px`;
           myElem.style.top = `${event.clientY}px`;
           document.body.appendChild(myElem);
           setTimeout(() => {
@@ -93,7 +96,7 @@ $(document).ready(() => {
           // making thunder images
           const myElem = document.createElement("div");
           myElem.className = "lightning2";
-          myElem.style.left = `${event.clientX - 330}px`;
+          myElem.style.left = `${event.clientX - 150}px`;
           myElem.style.top = `${event.clientY}px`;
           document.body.appendChild(myElem);
           var mybool = false;
@@ -138,7 +141,7 @@ $(document).ready(() => {
 
           if (position.left + position.width < 0) {
             // element is off to the left of the view
-            // console.log("left the screen");
+
           }
         });
         var pos = sunimg.getBoundingClientRect();
@@ -218,23 +221,25 @@ $(document).ready(() => {
         plane.style.bottom = planeBottom + "%";
         planeImage.style.transform = "rotate(" + angle + "deg)";
       }
-      if(audio.currentTime>174 && soundPlaying){
-          overlay.style.opacity = "100%";
-          document.getElementById("plane").style.display="none";
-          //overlay.style.display = "block";
-    }
-    if(audio.currentTime>175 && soundPlaying ){
-      overlay.style.opacity = "0%";
+      if (audio.currentTime > 174 && soundPlaying) {
+        $(".lastblackscreen").fadeIn();
+        $(".lastlastblackscreen").fadeIn();
+        $(".lastlastlastblackscreen").fadeIn();
+        overlay.style.opacity = "100%";
+        document.getElementById("plane").style.display = "none";
+        //overlay.style.display = "block";
+      }
+      if (audio.currentTime > 175 && soundPlaying) {
+        overlay.style.opacity = "0%";
         overlay2.style.opacity = "100%";
         heartattack.style.display = "block";
-  }
-   if(audio.currentTime>177 && soundPlaying){
-       heartattack.style.display = "none";
-       overlay3.style.opacity = "100%";
-       heartattack2.style.display = "block";
-     }
-     console.log(audio.currentTime);
-  // if (sound.ended) {
+      }
+      if (audio.currentTime > 177 && soundPlaying) {
+        heartattack.style.display = "none";
+        overlay3.style.opacity = "100%";
+        heartattack2.style.display = "block";
+      }
+      // if (sound.ended) {
       //   // show the blackscreen after audio finishes playing
       //   $(".homeScreen").fadeOut(2000);
       //   $(".blackScreen").fadeIn(3000);
