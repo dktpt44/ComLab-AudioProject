@@ -211,7 +211,8 @@ $(document).ready(() => {
         planeBottom = planeBottom - 0.05;
         plane.style.bottom = planeBottom + "%";
         planeImage.style.transform = "rotate(" + angle + "deg)";
-      } else if (sound.currentTime > 175) {
+      }
+      if (sound.ended) {
         // show the blackscreen after audio finishes playing
         $(".homeScreen").fadeOut(2000);
         $(".blackScreen").fadeIn(3000);
